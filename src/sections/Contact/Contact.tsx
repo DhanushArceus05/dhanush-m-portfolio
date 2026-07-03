@@ -140,7 +140,7 @@ export function Contact() {
                     >
                       <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
                     </motion.span>
-                    Message sent -- thanks for reaching out! I&apos;ll reply soon.
+                    Message captured successfully. Email integration can be connected later.
                   </motion.p>
                 ) : null}
                 {status === "error" ? (
