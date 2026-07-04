@@ -63,14 +63,9 @@ It is designed to provide recruiters, hiring managers, and fellow developers wit
 
 ---
 
-# 📸 Preview
+# 📸 Portfolio Preview
 
-> Replace this section with a screenshot of your homepage.
-
-```text
-public/images/portfolio-preview.png
-```
-
+![Portfolio Preview](public/images/portfolio-preview.png)
 ---
 
 # 🚀 Live Demo
