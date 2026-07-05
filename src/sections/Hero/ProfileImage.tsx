@@ -108,8 +108,16 @@ export function ProfileImage({ reducedMotion, size = "hero" }: ProfileImageProps
         {/* Glass frame + image */}
         <div className="absolute inset-[3px] overflow-hidden rounded-[2.6rem] border border-white/10 bg-surface shadow-[0_8px_40px_rgba(0,0,0,0.45)]">
           <img
-            src="/images/dhanush-profile.webp"
-            srcSet="/images/dhanush-profile.webp 900w"
+            src={
+              size === "hero"
+              ? "/images/dhanush-home.png"
+              : "/images/dhanush-about.png"
+            }
+            srcSet={
+              size === "hero"
+              ? "/images/dhanush-home.png 900w"
+              : "/images/dhanush-about.png 900w"
+            }
             sizes="(min-width: 1024px) 380px, (min-width: 640px) 310px, 240px"
             alt="Dhanush M, AI Engineer and Full Stack Developer"
             width={900}
