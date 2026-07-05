@@ -1,13 +1,7 @@
-// NOTE: This form is UI-complete but not wired to a backend.
-// To make it functional, connect the handleSubmit function below to one of:
-//   - Formspree (https://formspree.io) -- simplest, no backend needed
-//   - EmailJS (https://www.emailjs.com) -- sends straight from the client
-//   - A custom backend API endpoint
-// Replace the simulated setTimeout in handleSubmit with a real fetch/POST call.
-
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Github, Linkedin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { SectionHeading } from "../../components/ui/SectionHeading";
 import { GlassCard } from "../../components/ui/GlassCard";
 import { MagneticButton } from "../../components/ui/MagneticButton";
@@ -23,6 +17,10 @@ interface FormValues {
 
 const EMPTY_FORM: FormValues = { name: "", email: "", message: "" };
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 export function Contact() {
   const [values, setValues] = useState<FormValues>(EMPTY_FORM);
@@ -45,8 +43,16 @@ export function Contact() {
 
     setStatus("submitting");
     try {
-      // Simulated network call -- see the integration note at the top of this file.
-      await new Promise((resolve) => setTimeout(resolve, 900));
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          name: values.name,
+          email: values.email,
+          message: values.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
       setStatus("success");
       setValues(EMPTY_FORM);
     } catch {
@@ -140,7 +146,7 @@ export function Contact() {
                     >
                       <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
                     </motion.span>
-                    Message captured successfully. Email integration can be connected later.
+                    Message sent successfully! I'll get back to you soon.
                   </motion.p>
                 ) : null}
                 {status === "error" ? (
@@ -154,7 +160,7 @@ export function Contact() {
                     role="alert"
                   >
                     <AlertCircle className="h-4 w-4" aria-hidden="true" />
-                    Something went wrong. Please try again or email me directly.
+                    Failed to send message. Please try again.
                   </motion.p>
                 ) : null}
               </AnimatePresence>
