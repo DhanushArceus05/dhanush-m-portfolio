@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, ArrowUpRight } from "lucide-react";
+import { Github, ArrowUpRight, Sparkles } from "lucide-react";
 import { SectionHeading } from "../../components/ui/SectionHeading";
 import { MagneticButton } from "../../components/ui/MagneticButton";
 import { GlassCard } from "../../components/ui/GlassCard";
@@ -8,8 +8,6 @@ import { LINKS } from "../../data/constants";
 import { fadeUp } from "../../lib/motion-variants";
 
 const USERNAME = "DhanushArceus05";
-const THEME_PARAMS =
-  "hide_border=true&bg_color=00000000&title_color=6C63FF&text_color=94A3B8&icon_color=00F5FF";
 
 export function GitHubStats() {
   return (
@@ -17,7 +15,7 @@ export function GitHubStats() {
       <div className="mx-auto max-w-5xl">
         <SectionHeading
           title="GitHub Activity"
-          subtitle="A live look at contributions, top languages, and repository activity."
+          subtitle="Explore my open-source work, contribution history, and software engineering journey."
         />
 
         <motion.div
@@ -27,18 +25,30 @@ export function GitHubStats() {
           variants={fadeUp}
           className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-2"
         >
-          <GlassCard className="flex items-center justify-center">
-            <StatImage
-              src={`https://github-readme-stats.vercel.app/api?username=${USERNAME}&show_icons=true&${THEME_PARAMS}`}
-              alt="Dhanush's GitHub stats -- stars, commits, PRs, issues"
-            />
+          <GlassCard className="flex flex-col justify-center gap-4 p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03]">
+                <Github className="h-5 w-5 text-primary" aria-hidden="true" />
+              </div>
+              <p className="text-sm font-medium text-muted-foreground">Repository Activity</p>
+            </div>
+            <p className="text-3xl font-bold text-white sm:text-4xl">12+</p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Production-ready AI, MERN, and data science projects built with modern technologies.
+            </p>
           </GlassCard>
 
-          <GlassCard className="flex items-center justify-center">
-            <StatImage
-              src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${USERNAME}&layout=compact&${THEME_PARAMS}`}
-              alt="Dhanush's most-used programming languages on GitHub"
-            />
+          <GlassCard className="flex flex-col justify-center gap-4 p-6">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.03]">
+                <Sparkles className="h-5 w-5 text-primary" aria-hidden="true" />
+              </div>
+              <p className="text-sm font-medium text-muted-foreground">Core Focus</p>
+            </div>
+            <p className="text-3xl font-bold text-white sm:text-4xl">AI + MERN</p>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Building Generative AI apps, full-stack platforms, and production-ready portfolio projects.
+            </p>
           </GlassCard>
         </motion.div>
 
@@ -75,7 +85,7 @@ export function GitHubStats() {
             View GitHub Profile
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
           </MagneticButton>
-        </motion.div>
+       </motion.div>
       </div>
     </section>
   );
