@@ -1,5 +1,10 @@
 export interface Project {
-  slug: "librix" | "persona-agent" | "super-app" | "pharmassist";
+  slug:
+    | "ai-resume-analyzer"
+    | "persona-agent"
+    | "librix"
+    | "super-app"
+    | "pharmassist";
   name: string;
   category: string;
   flagship: boolean;
@@ -16,21 +21,54 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    slug: "librix",
-    name: "Librix",
-    category: "Full Stack -- MERN -- Production",
+    slug: "ai-resume-analyzer",
+    name: "AI Resume Analyzer",
+    category: "Generative AI -- Full Stack SaaS -- Production",
     flagship: true,
     description:
-      "A production-ready Library Management Platform built end-to-end with the MERN stack -- covering inventory, borrowing, and member administration in one system.",
+      "A production-ready AI-powered SaaS platform that evaluates resumes from both recruiter and Applicant Tracking System perspectives, combining deterministic scoring with Google Gemini AI.",
     challenge:
-      "Libraries need reliable, role-aware software: librarians manage inventory and transactions while members only see what's relevant to them, without compromising security.",
+      "Job seekers often receive generic resume advice without understanding how recruiters or ATS platforms actually evaluate their applications. Existing tools may provide a single score, but rarely offer explainable feedback, job-specific matching, actionable rewrites, interview preparation, and downloadable reporting in one secure platform.",
     solution:
-      "Role-based access with secure JWT authentication, complete CRUD operations, a borrow/return workflow with real-time status tracking, and full search, filtering and pagination -- deployed to the cloud for production use.",
-    techStack: ["React.js", "Node.js", "Express.js", "MongoDB Atlas", "JWT", "REST APIs", "Render", "Vercel"],
-    features: ["JWT Auth", "Role-Based Access", "MERN Stack", "MongoDB Atlas", "Cloud Deployment", "Full CRUD", "Responsive UI"],
-    liveUrl: "https://librix-library-management-system.vercel.app/",
-    githubUrl: "https://github.com/DhanushArceus05/librix-library-management-system",
-    images: ["librix-dashboard", "librix-manage-books", "librix-members", "librix-borrow-history", "librix-profile"],
+      "Built a full-stack SaaS application that parses PDF and DOCX resumes, generates recruiter-style AI feedback, calculates deterministic ATS scores, compares resumes against job descriptions, rewrites weak sections, creates personalized interview questions, and exports professional PDF reports. The platform includes secure JWT authentication, user-isolated data, MongoDB Atlas persistence, production security, and cloud deployment through Vercel and Render.",
+    techStack: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Node.js",
+      "Express.js",
+      "MongoDB Atlas",
+      "Google Gemini AI",
+      "JWT",
+      "Multer",
+      "pdf-parse",
+      "Mammoth",
+      "jsPDF",
+      "Render",
+      "Vercel",
+    ],
+    features: [
+      "AI Resume Analysis",
+      "ATS Scoring",
+      "JD Matching",
+      "Resume Rewrite",
+      "Interview Questions",
+      "PDF Reports",
+      "JWT Authentication",
+      "Resume Parsing",
+      "Production Deployment",
+    ],
+    liveUrl: "https://ai-resume-analyzer-version-one.vercel.app",
+    githubUrl: "https://github.com/DhanushArceus05/ai-resume-analyzer",
+    images: [
+      "ai-resume-analyzer-landing",
+      "ai-resume-analyzer-dashboard",
+      "ai-resume-analyzer-analysis",
+      "ai-resume-analyzer-ats",
+      "ai-resume-analyzer-jd-match",
+    ],
   },
   {
     slug: "persona-agent",
@@ -38,49 +76,156 @@ export const PROJECTS: Project[] = [
     category: "Generative AI -- RAG -- LLM",
     flagship: false,
     description:
-      "An AI support agent that reads who it's talking to and adapts tone and depth -- while staying grounded in a real knowledge base instead of improvising.",
+      "An intelligent support agent that detects user personas, adapts response tone and technical depth, and grounds every answer in a real knowledge base.",
     challenge:
-      "Generic chatbot responses feel impersonal and often hallucinate facts. Support teams need answers that are both accurate and appropriately tailored.",
+      "Generic chatbot responses often feel impersonal, fail to match the user's level of expertise, and can hallucinate unsupported information. Customer support systems need answers that are accurate, context-aware, and appropriately tailored.",
     solution:
-      "RAG with ChromaDB and Gemini embeddings grounds every response in real documentation; real-time persona detection adapts tone; LangChain adds multi-turn memory; a confidence-scoring mechanism escalates low-confidence answers to a human.",
-    techStack: ["Python", "Gemini 2.0 Flash", "LangChain", "ChromaDB", "Streamlit", "RAG", "Google Embeddings"],
-    features: ["Generative AI", "RAG", "Gemini", "ChromaDB", "Streamlit", "NLP"],
+      "Implemented a retrieval-augmented generation pipeline using ChromaDB and Gemini embeddings to ground responses in trusted documentation. Added persona detection for technical experts, frustrated users, and business executives, along with multi-turn conversational memory, confidence scoring, and human escalation for low-confidence responses.",
+    techStack: [
+      "Python",
+      "Gemini 2.0 Flash",
+      "LangChain",
+      "ChromaDB",
+      "Streamlit",
+      "RAG",
+      "Google Embeddings",
+      "Prompt Engineering",
+    ],
+    features: [
+      "Persona Detection",
+      "Retrieval-Augmented Generation",
+      "Gemini AI",
+      "ChromaDB",
+      "Multi-Turn Memory",
+      "Confidence Scoring",
+      "Human Escalation",
+      "Streamlit",
+    ],
     liveUrl: "https://persona-support-agentgit-05.streamlit.app/",
     githubUrl: "https://github.com/DhanushArceus05/persona-support-agent.git",
-    images: ["persona-agent-chat", "persona-agent-conversation", "persona-agent-rag-response"],
+    images: [
+      "persona-agent-chat",
+      "persona-agent-conversation",
+      "persona-agent-rag-response",
+    ],
+  },
+  {
+    slug: "librix",
+    name: "Librix",
+    category: "Full Stack -- MERN -- Production",
+    flagship: false,
+    description:
+      "A production-ready library management platform built end-to-end with the MERN stack, covering inventory, borrowing, returns, member administration, and role-based access.",
+    challenge:
+      "Libraries need secure and reliable software that gives librarians full control over inventory and member operations while ensuring that members can only access information and actions relevant to them.",
+    solution:
+      "Developed role-based access with secure JWT authentication, complete book and member management, borrow-and-return workflows, real-time availability tracking, search, filtering, pagination, and protected dashboards. The system is connected to MongoDB Atlas and deployed through Render and Vercel.",
+    techStack: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB Atlas",
+      "JWT",
+      "bcrypt",
+      "REST APIs",
+      "Render",
+      "Vercel",
+    ],
+    features: [
+      "JWT Authentication",
+      "Role-Based Access",
+      "Book Management",
+      "Member Management",
+      "Borrow and Return Workflow",
+      "Search and Filtering",
+      "MongoDB Atlas",
+      "Cloud Deployment",
+    ],
+    liveUrl: "https://librix-library-management-system.vercel.app/",
+    githubUrl:
+      "https://github.com/DhanushArceus05/librix-library-management-system",
+    images: [
+      "librix-dashboard",
+      "librix-manage-books",
+      "librix-members",
+      "librix-borrow-history",
+      "librix-profile",
+    ],
   },
   {
     slug: "super-app",
     name: "The Super App",
-    category: "React -- Dashboard",
+    category: "React -- Personalized Dashboard",
     flagship: false,
     description:
-      "A personalized multi-feature dashboard unifying weather, live news, a countdown timer, notes and genre-based movie recommendations in one React app.",
+      "A personalized multi-feature dashboard combining weather, live news, countdown tools, notes, entertainment preferences, and movie recommendations in one React application.",
     challenge:
-      "Juggling separate apps for weather, news and entertainment planning is friction most people don't need -- a single, fast, personalized hub is more useful.",
+      "Users often switch between several separate applications for weather, news, planning, notes, and entertainment discovery, creating unnecessary friction and fragmented experiences.",
     solution:
-      "Integrated OpenWeatherMap, GNews and OMDB behind authenticated, protected routes, using Zustand for lightweight global state and Axios for API orchestration, styled with Tailwind CSS.",
-    techStack: ["React 18", "Vite", "Zustand", "Tailwind CSS", "Axios", "OpenWeatherMap API", "GNews API", "OMDB API"],
-    features: ["React", "Dashboard", "Multiple APIs", "Zustand", "Tailwind"],
+      "Integrated weather, news, and movie APIs into a unified dashboard with protected navigation, category-based personalization, responsive layouts, lightweight global state through Zustand, and API orchestration with Axios.",
+    techStack: [
+      "React 18",
+      "Vite",
+      "Zustand",
+      "Tailwind CSS",
+      "Axios",
+      "OpenWeatherMap API",
+      "GNews API",
+      "OMDB API",
+    ],
+    features: [
+      "Personalized Dashboard",
+      "Weather Integration",
+      "Live News",
+      "Movie Recommendations",
+      "Countdown Timer",
+      "Notes",
+      "Zustand State Management",
+      "Responsive UI",
+    ],
     liveUrl: "https://the-super-app-arceus.vercel.app/",
     githubUrl: "https://github.com/DhanushArceus05/The-Super-App.git",
-    images: ["super-app-dashboard", "super-app-interests", "super-app-movies", "super-app-movie-modal"],
+    images: [
+      "super-app-dashboard",
+      "super-app-interests",
+      "super-app-movies",
+      "super-app-movie-modal",
+    ],
   },
   {
     slug: "pharmassist",
     name: "PharmAssist",
-    category: "Healthcare -- React",
+    category: "Healthcare -- React -- Firebase",
     flagship: false,
     description:
-      "A medication management app that helps people organize prescriptions, stay on top of dosing schedules, and look up medicines with verified openFDA data.",
+      "A medication management application that helps users organize prescriptions, track schedules, monitor adherence, and access verified medicine information.",
     challenge:
-      "Missed doses and disorganized prescriptions are a real adherence problem, and medicine information from unverified sources can be actively unsafe.",
+      "Missed medication doses, disorganized prescriptions, and unreliable medicine information can create serious adherence and safety problems for patients.",
     solution:
-      "Medication scheduling and adherence tracking backed by Firebase, openFDA integration for authoritative drug lookups, and Google OAuth for secure access across sessions.",
-    techStack: ["React", "JavaScript", "Chakra UI", "Firebase", "Google OAuth", "openFDA API"],
-    features: ["Healthcare", "Firebase", "Google OAuth", "openFDA", "React"],
+      "Built medication scheduling and adherence tracking with Firebase persistence, secure Google OAuth access, daily medication workflows, and openFDA integration for reliable drug information.",
+    techStack: [
+      "React",
+      "JavaScript",
+      "Chakra UI",
+      "Firebase",
+      "Google OAuth",
+      "openFDA API",
+    ],
+    features: [
+      "Medication Scheduling",
+      "Adherence Tracking",
+      "Google OAuth",
+      "Firebase",
+      "Drug Lookup",
+      "openFDA Integration",
+      "Responsive UI",
+    ],
     liveUrl: "https://verdant-melba-81c6c0.netlify.app/",
     githubUrl: "https://github.com/DhanushArceus05/PharmAssist.git",
-    images: ["pharmassist-dashboard", "pharmassist-add-medication", "pharmassist-drug-lookup"],
+    images: [
+      "pharmassist-dashboard",
+      "pharmassist-add-medication",
+      "pharmassist-drug-lookup",
+    ],
   },
 ];

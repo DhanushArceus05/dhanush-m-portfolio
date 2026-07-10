@@ -6,7 +6,11 @@ import { staggerContainer } from "../../lib/motion-variants";
 
 export function AcademicProjects() {
   return (
-    <section id="academic-projects" className="relative w-full px-6 py-24 sm:py-28 lg:py-32" aria-label="Academic and AI projects">
+    <section
+      id="academic-projects"
+      className="relative w-full px-6 py-24 sm:py-28 lg:py-32"
+      aria-label="Academic and AI projects"
+    >
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           title="Academic &amp; AI Projects"
