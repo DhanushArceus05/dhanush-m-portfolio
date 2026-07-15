@@ -31,7 +31,7 @@ export const LINKS = {
   // Corrected per explicit instruction -- overrides resume's alternate URL.
   linkedin: "https://www.linkedin.com/in/dhanush-m-arceus05",
   email: `mailto:${PERSONAL.email}`,
-  resumePdf: "/resume/Dhanush_M_AI_Engineer_Resume.pdf",
+  resumePdf: "/resume/Dhanush_M_AI_Engineer_Resume_.pdf",
 } as const;
 
 export const EDUCATION = {
